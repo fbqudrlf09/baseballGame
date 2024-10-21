@@ -30,7 +30,7 @@ public class BaseBall {
 
         while(true) {
             ranNumber = random.nextInt(minNum, maxNum);
-            if(Parser.isNotDepulicationNumber(ranNumber)) break;
+            if(Parser.isNotDuplicationNumber(ranNumber)) break;
         }
 
         numberDTO.setBaseBallNumber(ranNumber);
