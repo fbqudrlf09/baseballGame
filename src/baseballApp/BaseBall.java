@@ -2,7 +2,6 @@ package baseballApp;
 
 import java.util.HashSet;
 import java.util.Random;
-import java.util.stream.Stream;
 
 public class BaseBall {
 
@@ -31,7 +30,7 @@ public class BaseBall {
 
         while(true) {
             ranNumber = random.nextInt(minNum, maxNum);
-            if(Parser.IsDepulicationNumber(ranNumber)) break;
+            if(Parser.isNotDepulicationNumber(ranNumber)) break;
         }
 
         numberDTO.setBaseBallNumber(ranNumber);
