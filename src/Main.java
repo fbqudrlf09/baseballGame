@@ -1,8 +1,8 @@
-import baseballApp.Sequnce;
+import baseballApp.Sequence;
 
 public class Main {
     public static void main(String[] args) {
 
-        Sequnce.run();
+        Sequence.run();
     }
 }
