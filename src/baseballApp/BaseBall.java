@@ -1,11 +1,11 @@
 package baseballApp;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class BaseBall {
+
+    private List<String> gameRecords = new ArrayList<>();
 
     private int digitNum = 4;
 
@@ -17,6 +17,7 @@ public class BaseBall {
     public void run() {
         // 데이터 입력
         NumberDTO comNumberDTO = getRandomNumberDTO(digitNum);
+        System.out.println(comNumberDTO.toString());
         NumberDTO userDTO;
         Scanner sc = new Scanner(System.in);
         int baseBallCntNumber = 0;
@@ -32,16 +33,28 @@ public class BaseBall {
 
             baseBallCntNumber++;
             ResultDTO resultDTO = judgeBaseBall(comNumberDTO, userDTO);
-            System.out.println(comNumberDTO.toString());
-            System.out.println("총 시도 : " + baseBallCntNumber + resultDTO.toString());
+            System.out.println("총 시도\t:\t" + baseBallCntNumber + "\t" + resultDTO.toString());
             if(resultDTO.getStrikeNumber() == digitNum) break;
         }
 
+        gameRecords.add(Integer.toString(baseBallCntNumber));
         System.out.println("게임에 이겼습니다. 총 " + baseBallCntNumber + "번의 시도를 하였습니다.");
     }
 
+    public void showGameRecord(){
+        if(gameRecords.isEmpty()) {
+            System.out.println("게임 기록이 없습니다. 게임을 시작해주세요!!");
+            return;
+        }
+
+        System.out.println("< 게임 기록 보기 >");
+        for (int i = 0; i < gameRecords.size(); i++) {
+            System.out.println( (i + 1) + "번째 게임 \t:\t 시도 횟수 \t- \t" + gameRecords.get(i));
+        }
+    }
+
     private boolean isRightNumber(String str) {
-        return !Parser.isRightDigit(str, digitNum) || !Parser.isNotDuplicationNumber(Integer.parseInt(str));
+        return !Parser.isRightDigitNumber(str, digitNum) || !Parser.isNotDuplicationNumber(Integer.parseInt(str));
     }
 
     private ResultDTO judgeBaseBall(NumberDTO comNumber, NumberDTO userNumber){

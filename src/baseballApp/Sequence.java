@@ -21,7 +21,7 @@ public class Sequence {
             switch(command){
                 case "0": {
                     // 자릿수 설정 구현
-                    System.out.println("설정하고자 하는 자릿수를 입력하세요.");
+                    System.out.println("설정하고자 하는 자릿수를 입력하세요. (1 ~ 9)");
                     baseBall.setDigitNum(sc.nextLine() );
 
                     break;
@@ -34,7 +34,7 @@ public class Sequence {
                 }
                 case "2": {
                     //게임 기록 보기 구현
-
+                    baseBall.showGameRecord();
 
                     break;
                 }
